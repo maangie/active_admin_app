@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Staff, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before { @staff = Staff.new(code: 'VALIDCODE') }
+
+  subject { @staff }
+
+  it { should respond_to(:code) }
 end

@@ -24,11 +24,11 @@ RSpec.describe StaffsController, type: :controller do
   # Staff. As you add validations to Staff, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { code: 'VALIDCODE' }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { code: '' }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -103,14 +103,15 @@ RSpec.describe StaffsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { code: 'NEWVALIDCODE' }
+        # skip("Add a hash of attributes valid for your model")
       }
 
       it "updates the requested staff" do
         staff = Staff.create! valid_attributes
         put :update, {:id => staff.to_param, :staff => new_attributes}, valid_session
         staff.reload
-        skip("Add assertions for updated state")
+        expect(staff.code).to eq 'NEWVALIDCODE'
       end
 
       it "assigns the requested staff as @staff" do
